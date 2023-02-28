@@ -89,7 +89,7 @@ function lib:CreateMain(hubname)
 		call = call or function() end
 		
 		ButtonPreset.Name = "ButtonPreset"
-		ButtonPreset.Parent = cheat
+		ButtonPreset.Parent = MainFrame:FindFirstChild(cheat)
 		ButtonPreset.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
 		ButtonPreset.BorderSizePixel = 0
 		ButtonPreset.Position = UDim2.new(0.0175953079, 0, 0.0097402595, 0)
@@ -128,7 +128,7 @@ function lib:CreateMain(hubname)
 		local Toggle = Instance.new("TextButton")
 		
 		TogglePreset.Name = "TogglePreset"
-		TogglePreset.Parent = cheat
+		TogglePreset.Parent = MainFrame:FindFirstChild(cheat)
 		TogglePreset.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
 		TogglePreset.BorderSizePixel = 0
 		TogglePreset.Position = UDim2.new(0.0175953079, 0, 0.0097402595, 0)
@@ -186,7 +186,7 @@ function lib:CreateMain(hubname)
 		call = call or function() end
 		
 		SliderPreset.Name = "SliderPreset"
-		SliderPreset.Parent = cheat
+		SliderPreset.Parent = MainFrame:FindFirstChild(cheat)
 		SliderPreset.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
 		SliderPreset.BorderSizePixel = 0
 		SliderPreset.Position = UDim2.new(0.0175953079, 0, 0.0097402595, 0)
@@ -249,6 +249,15 @@ function lib:CreateMain(hubname)
 		TabName.Text = name
 		TabName.TextColor3 = Color3.fromRGB(154, 154, 154)
 		TabName.TextSize = 20.000
+		
+		TabName.MouseButton1Click:Connect(function()
+			for i,v in pairs(MainFrame:GetChildren()) do
+				if v.Name ~= "Tabs" or v.Name ~= "TopBar" then
+					v.Visible = false
+					MainFrame:FindFirstChild(name).Visible = true
+				end
+			end
+		end)
 
 		TabsGridLayout.Name = "TabsGridLayout"
 		TabsGridLayout.Parent = Tabs
