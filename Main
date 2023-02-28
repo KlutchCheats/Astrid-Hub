@@ -24,7 +24,7 @@ function lib:CreateMain(hubname)
 
 
 	AstridHub.Name = "AstridHub"
-	AstridHub.Parent = game:GetService("Players").LocalPlayer.PlayerGui
+	AstridHub.Parent = game:GetService("CoreGui")
 	AstridHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 	MainFrame.Name = "MainFrame"
