@@ -247,7 +247,7 @@ function lib:CreateMain(hubname)
 				pcall(function()
 					call(value)
 				end)
-				SliderBackground.Size = UDim2.new(0, math.clamp(mouse.X - SliderBackground.AbsolutePosition.X, 0, 312), 0, 6)
+				Slider.Size = UDim2.new(0, math.clamp(mouse.X - SliderBackground.AbsolutePosition.X, 0, 312), 0, 6)
 			end)
 			releaseconnection = uis.InputEnded:Connect(function(Mouse)
 				if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
