@@ -172,7 +172,9 @@ function lib:CreateMain(hubname)
 				Toggle.BackgroundColor3 = Color3.fromRGB(255, 53, 17)
 			end
 			
-			pcall(call)
+			pcall(function()
+				call(toggled)
+			end)
 		end)
 	end
 
