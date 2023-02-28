@@ -182,7 +182,7 @@ function lib:CreateMain(hubname)
 		local SliderPreset = Instance.new("Frame")
 		local SliderPresetText = Instance.new("TextLabel")
 		local SliderBackground = Instance.new("Frame")
-		local Slider = Instance.new("Frame")
+		local Slider = Instance.new("TextButton")
 		local SliderValue = Instance.new("TextLabel")
 		
 		call = call or function() end
@@ -230,6 +230,37 @@ function lib:CreateMain(hubname)
 		SliderValue.TextColor3 = Color3.fromRGB(138, 138, 138)
 		SliderValue.TextSize = 20.000
 		SliderValue.TextXAlignment = Enum.TextXAlignment.Right
+		
+		local value
+		local mouse = game.Players.LocalPlayer:GetMouse()
+		local uis = game:GetService("UserInputService")
+		
+		Slider.MouseButton1Down:Connect(function()
+			value = math.floor((((tonumber(150) - tonumber(0)) / 318) * SliderBackground.AbsoluteSize.X) + tonumber(1)) or 0
+			pcall(function()
+				call(value)
+			end)
+			SliderBackground.Size = UDim2.new(0, math.clamp(mouse.X - SliderBackground.AbsolutePosition.X, 0, 318), 0, 16)
+			moveconnection = mouse.Move:Connect(function()
+				SliderValue.Text = value
+				value = math.floor((((tonumber(150) - tonumber(1)) / 318) * SliderBackground.AbsoluteSize.X) + tonumber(1))
+				pcall(function()
+					call(value)
+				end)
+				SliderBackground.Size = UDim2.new(0, math.clamp(mouse.X - SliderBackground.AbsolutePosition.X, 0, 318), 0, 16)
+			end)
+			releaseconnection = uis.InputEnded:Connect(function(Mouse)
+				if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
+					value = math.floor((((tonumber(150) - tonumber(1)) / 318) * SliderBackground.AbsoluteSize.X) + tonumber(1))
+					pcall(function()
+						call(value)
+					end)
+					SliderBackground.Size = UDim2.new(0, math.clamp(mouse.X - SliderBackground.AbsolutePosition.X, 0, 318), 0, 16)
+					moveconnection:Disconnect()
+					releaseconnection:Disconnect()
+				end
+			end)
+		end)
 	end
 
 	function gamelib:CreateTab(name)
