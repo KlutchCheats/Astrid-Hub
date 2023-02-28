@@ -236,18 +236,18 @@ function lib:CreateMain(hubname)
 		local uis = game:GetService("UserInputService")
 		
 		Slider.MouseButton1Down:Connect(function()
-			value = math.floor((((tonumber(150) - tonumber(0)) / 318) * SliderBackground.AbsoluteSize.X) + tonumber(1)) or 0
+			value = math.floor((((tonumber(150) - tonumber(0)) / 312) * SliderBackground.AbsoluteSize.X) + tonumber(1)) or 0
 			pcall(function()
 				call(value)
 			end)
-			SliderBackground.Size = UDim2.new(0, math.clamp(mouse.X - SliderBackground.AbsolutePosition.X, 0, 318), 0, 16)
+			Slider.Size = UDim2.new(0, math.clamp(mouse.X - SliderBackground.AbsolutePosition.X, 0, 312), 0, 6)
 			moveconnection = mouse.Move:Connect(function()
 				SliderValue.Text = value
-				value = math.floor((((tonumber(150) - tonumber(1)) / 318) * SliderBackground.AbsoluteSize.X) + tonumber(1))
+				value = math.floor((((tonumber(150) - tonumber(1)) / 312) * SliderBackground.AbsoluteSize.X) + tonumber(1))
 				pcall(function()
 					call(value)
 				end)
-				SliderBackground.Size = UDim2.new(0, math.clamp(mouse.X - SliderBackground.AbsolutePosition.X, 0, 318), 0, 16)
+				SliderBackground.Size = UDim2.new(0, math.clamp(mouse.X - SliderBackground.AbsolutePosition.X, 0, 312), 0, 6)
 			end)
 			releaseconnection = uis.InputEnded:Connect(function(Mouse)
 				if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
@@ -255,7 +255,7 @@ function lib:CreateMain(hubname)
 					pcall(function()
 						call(value)
 					end)
-					SliderBackground.Size = UDim2.new(0, math.clamp(mouse.X - SliderBackground.AbsolutePosition.X, 0, 318), 0, 16)
+					SliderBackground.Size = UDim2.new(0, math.clamp(mouse.X - SliderBackground.AbsolutePosition.X, 0, 312), 0, 6)
 					moveconnection:Disconnect()
 					releaseconnection:Disconnect()
 				end
