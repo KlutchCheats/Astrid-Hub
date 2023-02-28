@@ -1,0 +1,292 @@
+local lib = {}
+
+function lib:CreateMain(hubname)
+	
+	local gamelib = {}
+	
+	local AstridHub = Instance.new("ScreenGui")
+	local MainFrame = Instance.new("Frame")
+	
+	
+	
+	
+	
+	local Tabs = Instance.new("Frame")
+	
+	local TopBar = Instance.new("Frame")
+	local HubName = Instance.new("TextLabel")
+	local Exit = Instance.new("TextButton")
+	local Minimize = Instance.new("TextButton")
+	
+	local spoof = {"A","a","B","b","C","c","D","d","E","e","F","f","G","g","H","h","I","i","J","j","K","k","1","2","3","4","5","6","7","8","9","0"}
+	
+	AstridHub.Name = spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]..spoof[math.random(1,#spoof)]
+
+
+	AstridHub.Name = "AstridHub"
+	AstridHub.Parent = game:GetService("CoreGui")
+	AstridHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+	MainFrame.Name = "MainFrame"
+	MainFrame.Parent = AstridHub
+	MainFrame.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+	MainFrame.BorderSizePixel = 0
+	MainFrame.Position = UDim2.new(0.331279933, 0, 0.309876531, 0)
+	MainFrame.Size = UDim2.new(0, 493, 0, 308)
+	MainFrame.Active = true
+	MainFrame.Draggable = true
+	
+	Tabs.Name = "Tabs"
+	Tabs.Parent = MainFrame
+	Tabs.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Tabs.BackgroundTransparency = 1.000
+	Tabs.BorderSizePixel = 0
+	Tabs.Position = UDim2.new(0, 0, 0.133116886, 0)
+	Tabs.Size = UDim2.new(0, 152, 0, 261)
+	
+	TopBar.Name = "TopBar"
+	TopBar.Parent = MainFrame
+	TopBar.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+	TopBar.BorderSizePixel = 0
+	TopBar.Size = UDim2.new(0, 493, 0, 35)
+
+	HubName.Name = "HubName"
+	HubName.Parent = TopBar
+	HubName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	HubName.BackgroundTransparency = 1.000
+	HubName.Size = UDim2.new(0, 152, 0, 35)
+	HubName.Font = Enum.Font.SourceSansBold
+	HubName.Text = hubname
+	HubName.TextColor3 = Color3.fromRGB(75, 75, 75)
+	HubName.TextSize = 20.000
+	HubName.TextWrapped = true
+
+	Exit.Name = "Exit"
+	Exit.Parent = TopBar
+	Exit.BackgroundColor3 = Color3.fromRGB(255, 51, 10)
+	Exit.Position = UDim2.new(0.937119663, 0, 0.142857149, 0)
+	Exit.Size = UDim2.new(0, 25, 0, 25)
+	Exit.Font = Enum.Font.SourceSans
+	Exit.Text = ""
+	Exit.TextColor3 = Color3.fromRGB(0, 0, 0)
+	Exit.TextSize = 14.000
+
+	Minimize.Name = "Minimize"
+	Minimize.Parent = TopBar
+	Minimize.BackgroundColor3 = Color3.fromRGB(255, 240, 24)
+	Minimize.Position = UDim2.new(0.874239326, 0, 0.142857149, 0)
+	Minimize.Size = UDim2.new(0, 25, 0, 25)
+	Minimize.Font = Enum.Font.SourceSans
+	Minimize.Text = ""
+	Minimize.TextColor3 = Color3.fromRGB(0, 0, 0)
+	Minimize.TextSize = 14.000
+
+	function gamelib:CreateButton(cheat, text, call)
+		local ButtonPreset = Instance.new("Frame")
+		local ButtonPresetText = Instance.new("TextLabel")
+		local Button = Instance.new("TextButton")
+		
+		call = call or function() end
+		
+		ButtonPreset.Name = "ButtonPreset"
+		ButtonPreset.Parent = cheat
+		ButtonPreset.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+		ButtonPreset.BorderSizePixel = 0
+		ButtonPreset.Position = UDim2.new(0.0175953079, 0, 0.0097402595, 0)
+		ButtonPreset.Size = UDim2.new(0, 328, 0, 47)
+
+		ButtonPresetText.Name = "ButtonPresetText"
+		ButtonPresetText.Parent = ButtonPreset
+		ButtonPresetText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		ButtonPresetText.BackgroundTransparency = 1.000
+		ButtonPresetText.Position = UDim2.new(0.0304878056, 0, 0, 0)
+		ButtonPresetText.Size = UDim2.new(0, 187, 0, 47)
+		ButtonPresetText.Font = Enum.Font.SourceSansBold
+		ButtonPresetText.Text = text
+		ButtonPresetText.TextColor3 = Color3.fromRGB(198, 198, 198)
+		ButtonPresetText.TextSize = 30.000
+		ButtonPresetText.TextXAlignment = Enum.TextXAlignment.Left
+
+		Button.Name = "Button"
+		Button.Parent = ButtonPreset
+		Button.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+		Button.BorderSizePixel = 0
+		Button.Position = UDim2.new(0.63719511, 0, 0.127659574, 0)
+		Button.Size = UDim2.new(0, 113, 0, 35)
+		Button.Font = Enum.Font.SourceSansBold
+		Button.TextColor3 = Color3.fromRGB(152, 152, 152)
+		Button.TextSize = 14.000
+		
+		Button.MouseButton1Click:Connect(function()
+			pcall(call)
+		end)
+	end
+
+	function gamelib:CreateToggle(cheat, text, call)
+		local TogglePreset = Instance.new("Frame")
+		local TogglePresetText = Instance.new("TextLabel")
+		local Toggle = Instance.new("TextButton")
+		
+		TogglePreset.Name = "TogglePreset"
+		TogglePreset.Parent = cheat
+		TogglePreset.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+		TogglePreset.BorderSizePixel = 0
+		TogglePreset.Position = UDim2.new(0.0175953079, 0, 0.0097402595, 0)
+		TogglePreset.Size = UDim2.new(0, 328, 0, 47)
+
+		TogglePresetText.Name = "TogglePresetText"
+		TogglePresetText.Parent = TogglePreset
+		TogglePresetText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TogglePresetText.BackgroundTransparency = 1.000
+		TogglePresetText.Position = UDim2.new(0.0304878056, 0, 0, 0)
+		TogglePresetText.Size = UDim2.new(0, 187, 0, 47)
+		TogglePresetText.Font = Enum.Font.SourceSansBold
+		TogglePresetText.Text = text
+		TogglePresetText.TextColor3 = Color3.fromRGB(198, 198, 198)
+		TogglePresetText.TextSize = 30.000
+		TogglePresetText.TextXAlignment = Enum.TextXAlignment.Left
+
+		Toggle.Name = "Toggle"
+		Toggle.Parent = TogglePreset
+		Toggle.BackgroundColor3 = Color3.fromRGB(255, 53, 17)
+		Toggle.BorderSizePixel = 0
+		Toggle.Position = UDim2.new(0.875, 0, 0.127659574, 0)
+		Toggle.Size = UDim2.new(0, 35, 0, 35)
+		Toggle.Font = Enum.Font.SourceSansBold
+		Toggle.Text = ""
+		Toggle.TextColor3 = Color3.fromRGB(152, 152, 152)
+		Toggle.TextSize = 14.000
+		
+		call = call or function() end
+		
+		local toggled = false
+		
+		Toggle.MouseButton1Click:Connect(function()
+			toggled = not toggled
+			
+			if toggled then
+				Toggle.BackgroundColor3 = Color3.fromRGB(0,255,0)
+				
+			else
+				
+				Toggle.BackgroundColor3 = Color3.fromRGB(255, 53, 17)
+			end
+			
+			pcall(call)
+		end)
+	end
+
+	function gamelib:CreateSlider(cheat, text, call)
+		local SliderPreset = Instance.new("Frame")
+		local SliderPresetText = Instance.new("TextLabel")
+		local SliderBackground = Instance.new("Frame")
+		local Slider = Instance.new("Frame")
+		local SliderValue = Instance.new("TextLabel")
+		
+		call = call or function() end
+		
+		SliderPreset.Name = "SliderPreset"
+		SliderPreset.Parent = cheat
+		SliderPreset.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+		SliderPreset.BorderSizePixel = 0
+		SliderPreset.Position = UDim2.new(0.0175953079, 0, 0.0097402595, 0)
+		SliderPreset.Size = UDim2.new(0, 328, 0, 47)
+
+		SliderPresetText.Name = "SliderPresetText"
+		SliderPresetText.Parent = SliderPreset
+		SliderPresetText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		SliderPresetText.BackgroundTransparency = 1.000
+		SliderPresetText.Position = UDim2.new(0.0304878056, 0, 0, 0)
+		SliderPresetText.Size = UDim2.new(0, 187, 0, 26)
+		SliderPresetText.Font = Enum.Font.SourceSansBold
+		SliderPresetText.Text = text
+		SliderPresetText.TextColor3 = Color3.fromRGB(198, 198, 198)
+		SliderPresetText.TextSize = 20.000
+		SliderPresetText.TextXAlignment = Enum.TextXAlignment.Left
+
+		SliderBackground.Name = "SliderBackground"
+		SliderBackground.Parent = SliderPreset
+		SliderBackground.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+		SliderBackground.BorderSizePixel = 0
+		SliderBackground.Position = UDim2.new(0.0304878056, 0, 0.680851042, 0)
+		SliderBackground.Size = UDim2.new(0, 312, 0, 6)
+
+		Slider.Name = "Slider"
+		Slider.Parent = SliderBackground
+		Slider.BackgroundColor3 = Color3.fromRGB(139, 139, 139)
+		Slider.BorderSizePixel = 0
+		Slider.Size = UDim2.new(0.5, 0, 1, 0)
+
+		SliderValue.Name = "SliderValue"
+		SliderValue.Parent = SliderPreset
+		SliderValue.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		SliderValue.BackgroundTransparency = 1.000
+		SliderValue.Position = UDim2.new(0.830792665, 0, 0, 0)
+		SliderValue.Size = UDim2.new(0, 49, 0, 26)
+		SliderValue.Font = Enum.Font.SourceSansBold
+		SliderValue.Text = "50"
+		SliderValue.TextColor3 = Color3.fromRGB(138, 138, 138)
+		SliderValue.TextSize = 20.000
+		SliderValue.TextXAlignment = Enum.TextXAlignment.Right
+	end
+
+	function gamelib:CreateTab(name)
+		local CheatPresetGridLayout = Instance.new("UIGridLayout")
+		local CheatPresetPadding = Instance.new("UIPadding")
+		local CheatPreset = Instance.new("ScrollingFrame")
+		
+		local TabName = Instance.new("TextButton")
+		local TabsGridLayout = Instance.new("UIGridLayout")
+		
+		TabName.Name = "TabName"
+		TabName.Parent = Tabs
+		TabName.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		TabName.BackgroundTransparency = 0.800
+		TabName.BorderSizePixel = 0
+		TabName.Position = UDim2.new(0.0394736826, 0, 0, 0)
+		TabName.Size = UDim2.new(0, 140, 0, 29)
+		TabName.Font = Enum.Font.SourceSansBold
+		TabName.Text = name
+		TabName.TextColor3 = Color3.fromRGB(154, 154, 154)
+		TabName.TextSize = 20.000
+
+		TabsGridLayout.Name = "TabsGridLayout"
+		TabsGridLayout.Parent = Tabs
+		TabsGridLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+		TabsGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+		TabsGridLayout.CellSize = UDim2.new(0, 140, 0, 29)
+		
+		CheatPreset.Name = name
+		CheatPreset.Parent = MainFrame
+		CheatPreset.Active = true
+		CheatPreset.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+		CheatPreset.BorderSizePixel = 0
+		CheatPreset.Position = UDim2.new(0.308316439, 0, 0.113636367, 0)
+		CheatPreset.Size = UDim2.new(0, 341, 0, 273)
+		CheatPreset.ScrollBarThickness = 2
+		
+		CheatPresetGridLayout.Name = "CheatPresetGridLayout"
+		CheatPresetGridLayout.Parent = CheatPreset
+		CheatPresetGridLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+		CheatPresetGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+		CheatPresetGridLayout.CellSize = UDim2.new(0, 328, 0, 47)
+
+		CheatPresetPadding.Name = "CheatPresetPadding"
+		CheatPresetPadding.Parent = CheatPreset
+		CheatPresetPadding.PaddingTop = UDim.new(0, 7)
+		
+		CheatPresetGridLayout.Name = "CheatPresetGridLayout"
+		CheatPresetGridLayout.Parent = CheatPreset
+		CheatPresetGridLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+		CheatPresetGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+		CheatPresetGridLayout.CellSize = UDim2.new(0, 328, 0, 47)
+
+		CheatPresetPadding.Name = "CheatPresetPadding"
+		CheatPresetPadding.Parent = CheatPreset
+		CheatPresetPadding.PaddingTop = UDim.new(0, 7)
+	end
+	
+	return gamelib;
+end
+
+return lib;
